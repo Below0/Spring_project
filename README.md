@@ -4,4 +4,4 @@
 + REST API 적용
 
 + **TDD 기반 리팩토링 적용** 
-+ **Repository 도메인 추가를 통한 모듈화 **
++ **Repository 도메인 추가를 통한 모듈화**
