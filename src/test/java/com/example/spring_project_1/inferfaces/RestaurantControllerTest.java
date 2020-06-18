@@ -24,7 +24,14 @@ class RestaurantControllerTest {
     public void list() throws Exception {
         mvc.perform(get("/restaurants"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("BOB")));
+                .andExpect(content().string(containsString("\"name\":\"BOB\"")));
+    }
+
+    @Test
+    public void detail() throws Exception{
+        mvc.perform(get("/restaurants/1"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("\"name\":\"BOB\"")));
     }
 
 }

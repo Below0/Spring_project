@@ -23,4 +23,6 @@ public class Restaurant {
         return this.addr;
     }
 
+    public Long getId(){ return this.id; }
+
 }

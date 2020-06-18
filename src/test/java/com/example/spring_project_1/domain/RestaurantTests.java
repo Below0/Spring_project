@@ -11,13 +11,14 @@ class RestaurantTests {
 
     @Test
     public void creation(){
-        Restaurant restaurant = new Restaurant("BOB");
+        Restaurant restaurant = new Restaurant(1004L,"BOB","Seoul");
         assertThat(restaurant.getName(), is("BOB"));
+        assertThat(restaurant.getId(), is(1004L));
     }
 
     @Test
     public void information(){
-        Restaurant restaurant = new Restaurant("BOB","Seoul");
+        Restaurant restaurant = new Restaurant(1004L,"BOB","Seoul");
         assertThat(restaurant.getInformaton(), is("BOB in Seoul"));
         assertThat(restaurant.getAddr(), is("Seoul"));
     }
