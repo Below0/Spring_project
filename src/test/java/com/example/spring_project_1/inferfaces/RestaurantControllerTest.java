@@ -1,5 +1,8 @@
 package com.example.spring_project_1.inferfaces;
 
+import com.example.spring_project_1.application.RestaurantService;
+import com.example.spring_project_1.domain.MenuItemRepository;
+import com.example.spring_project_1.domain.MenuItemRepositoryImpl;
 import com.example.spring_project_1.domain.RestaurantRepository;
 import com.example.spring_project_1.domain.RestaurantRepositoryImpl;
 import org.junit.jupiter.api.Test;
@@ -21,6 +24,12 @@ class RestaurantControllerTest {
     @SpyBean(RestaurantRepositoryImpl.class)
     private RestaurantRepository restaurantRepository;
 
+    @SpyBean(MenuItemRepositoryImpl.class)
+    private MenuItemRepository menuItemRepository;
+
+    @SpyBean(RestaurantService.class)
+    private RestaurantService restaurantService;
+
     @Autowired
     private MockMvc mvc;
     @Test
@@ -34,7 +43,8 @@ class RestaurantControllerTest {
     public void detail() throws Exception{
         mvc.perform(get("/restaurants/1"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("\"name\":\"Hayoung\"")));
+                .andExpect(content().string(containsString("\"name\":\"Hayoung\"")))
+                .andExpect(content().string(containsString("Kimchi")));
         mvc.perform(get("/restaurants/2"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("\"name\":\"Jiwon\"")));
