@@ -5,11 +5,12 @@ import com.example.spring_project_1.domain.MenuItemRepository;
 import com.example.spring_project_1.domain.Restaurant;
 import com.example.spring_project_1.domain.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+@Component
 public class RestaurantService {
 
     @Autowired
@@ -17,6 +18,8 @@ public class RestaurantService {
 
     @Autowired
     private MenuItemRepository menuItemRepository;
+
+    public RestaurantService(){}
 
     public RestaurantService(RestaurantRepository restaurantRepository){
         this.restaurantRepository = restaurantRepository;
