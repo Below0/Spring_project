@@ -18,9 +18,6 @@ public class RestaurantController {
     @Autowired
     private RestaurantService restaurantService;
 
-    @Autowired
-    private MenuItemRepository menuItemRepository;
-
     @GetMapping("/restaurants")
     public List<Restaurant> list(){
         List<Restaurant> restaurants = restaurantService.getRestaurants();
@@ -31,8 +28,6 @@ public class RestaurantController {
     public Restaurant detail(@PathVariable("id") Long id){
 
         Restaurant restaurant = restaurantService.getRestaurant(id);
-        List<MenuItem> menuItems = menuItemRepository.findAllbyRestaurant(id);
-        restaurant.setNewMenu(menuItems);
         return restaurant;
     }
 
