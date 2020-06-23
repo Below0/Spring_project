@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.SpyBean;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
@@ -60,8 +61,10 @@ class RestaurantControllerTest {
 
     @Test
     public void create() throws Exception {
-        Restaurant restaurant = new Restaurant(100L, "KAKAO","Pangyo");
-        mvc.perform(post("/restaurants"))
+        Restaurant restaurant = new Restaurant(1234L, "KAKAO","Pangyo");
+        mvc.perform(post("/restaurants")
+                .contentType(MediaType.APPLICATION_JSON)
+        .content("{\"name\":\"KAKAO\",\"addr\":\"pangyo\"}"))
                 .andExpect(status().isCreated())
                 .andExpect(header().string("location", "/restaurants/1234"))
                 .andExpect(content().string("{}"));
