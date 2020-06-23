@@ -14,22 +14,27 @@
   
 + **Mock 오브젝트(가짜 객체)를 통한 테스트 코드의 의존성 낮추기**
   
-  **Mockito 프레임워크를 이용**
-  
-  
-  
-  Spring은 POJO 사용을 권장
-  
-  
+  **Mockito 프레임워크**
+
++ **서비스 API 추가 및 테스트**
+
+
+
+## 특이사항
+
++ 테스트 코드의 verify(), any()  객체
+
+  -> any()객체의 경우 ArgumentMatchers.any()로 사용해야 사용 가능 - 버전 문제로 추정
 
 
 
 ## 환경
 
-|    목록     |   종류   |
-| :---------: | :------: |
-| Spring Boot |  2.3.1   |
-|     IDE     | IntelliJ |
-|     DB      |  MySQL   |
-|  Test Code  |  JUnit5  |
+|    목록     | 종류(버전) |
+| :---------: | :--------: |
+| Spring Boot |   2.3.1    |
+|     IDE     |  IntelliJ  |
+|     DB      |   MySQL    |
+|  Test Code  |   JUnit5   |
+| API 테스트  |  Postman   |
 
